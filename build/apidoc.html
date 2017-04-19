@@ -1,0 +1,3141 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/ranm8/requestify#readme"
+
+    >requestify (v0.2.5)</a>
+</h1>
+<h4>Simplifies node HTTP request making (HTTP client) with caching support.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify">module requestify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.cacheTransporter">
+            function <span class="apidocSignatureSpan">requestify.</span>cacheTransporter
+            <span class="apidocSignatureSpan">(cacheTransporter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.delete">
+            function <span class="apidocSignatureSpan">requestify.</span>delete
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.get">
+            function <span class="apidocSignatureSpan">requestify.</span>get
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.head">
+            function <span class="apidocSignatureSpan">requestify.</span>head
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.logAdapter">
+            function <span class="apidocSignatureSpan">requestify.</span>logAdapter
+            <span class="apidocSignatureSpan">(logAdapter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.logLevel">
+            function <span class="apidocSignatureSpan">requestify.</span>logLevel
+            <span class="apidocSignatureSpan">(level)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.post">
+            function <span class="apidocSignatureSpan">requestify.</span>post
+            <span class="apidocSignatureSpan">(url, data, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.put">
+            function <span class="apidocSignatureSpan">requestify.</span>put
+            <span class="apidocSignatureSpan">(url, data, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.redis">
+            function <span class="apidocSignatureSpan">requestify.</span>redis
+            <span class="apidocSignatureSpan">(redisInstance)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request">
+            function <span class="apidocSignatureSpan">requestify.</span>request
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.response">
+            function <span class="apidocSignatureSpan">requestify.</span>response
+            <span class="apidocSignatureSpan">(code, headers, body)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.responseEncoding">
+            function <span class="apidocSignatureSpan">requestify.</span>responseEncoding
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>requestify</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.</span>cache</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.</span>coreCacheTransporters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.</span>coreLoggerAdapters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.</span>interface_validator</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.</span>logger</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.</span>request.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.</span>response.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.cache">module requestify.cache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.cache.get">
+            function <span class="apidocSignatureSpan">requestify.cache.</span>get
+            <span class="apidocSignatureSpan">(url)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.cache.isTransportAvailable">
+            function <span class="apidocSignatureSpan">requestify.cache.</span>isTransportAvailable
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.cache.purge">
+            function <span class="apidocSignatureSpan">requestify.cache.</span>purge
+            <span class="apidocSignatureSpan">(url)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.cache.set">
+            function <span class="apidocSignatureSpan">requestify.cache.</span>set
+            <span class="apidocSignatureSpan">(url, response)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.cache.setCacheTransporter">
+            function <span class="apidocSignatureSpan">requestify.cache.</span>setCacheTransporter
+            <span class="apidocSignatureSpan">(cacheTransporter)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.coreCacheTransporters">module requestify.coreCacheTransporters</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.coreCacheTransporters.inMemory">
+            function <span class="apidocSignatureSpan">requestify.coreCacheTransporters.</span>inMemory
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.coreCacheTransporters.mongo">
+            function <span class="apidocSignatureSpan">requestify.coreCacheTransporters.</span>mongo
+            <span class="apidocSignatureSpan">(mongooseInstance, cacheCollection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.coreCacheTransporters.redis">
+            function <span class="apidocSignatureSpan">requestify.coreCacheTransporters.</span>redis
+            <span class="apidocSignatureSpan">(redisInstance)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.coreLoggerAdapters">module requestify.coreLoggerAdapters</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.coreLoggerAdapters.console">
+            function <span class="apidocSignatureSpan">requestify.coreLoggerAdapters.</span>console
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.coreLoggerAdapters.winston">
+            function <span class="apidocSignatureSpan">requestify.coreLoggerAdapters.</span>winston
+            <span class="apidocSignatureSpan">(winstonInstance)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.interface_validator">module requestify.interface_validator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.interface_validator.validate">
+            function <span class="apidocSignatureSpan">requestify.interface_validator.</span>validate
+            <span class="apidocSignatureSpan">(interfaceName, object, interfaceArray)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.logger">module requestify.logger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.logger.debug">
+            function <span class="apidocSignatureSpan">requestify.logger.</span>debug
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.logger.error">
+            function <span class="apidocSignatureSpan">requestify.logger.</span>error
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.logger.info">
+            function <span class="apidocSignatureSpan">requestify.logger.</span>info
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.logger.logLevel">
+            function <span class="apidocSignatureSpan">requestify.logger.</span>logLevel
+            <span class="apidocSignatureSpan">(level)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.logger.setLogger">
+            function <span class="apidocSignatureSpan">requestify.logger.</span>setLogger
+            <span class="apidocSignatureSpan">(loggerAdapter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.logger.warning">
+            function <span class="apidocSignatureSpan">requestify.logger.</span>warning
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.request">module requestify.request</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.request">
+            function <span class="apidocSignatureSpan">requestify.</span>request
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.request.prototype">module requestify.request.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.cookies">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>cookies
+            <span class="apidocSignatureSpan">(cookies)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getAuthorization">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getAuthorization
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getBody">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getBody
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getContentLength">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getContentLength
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getContentType">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getContentType
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getCookiesHeader">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getCookiesHeader
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getFullUrl">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getFullUrl
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getHeaders">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getHeaders
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getHost">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getHost
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getJsonBody">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getJsonBody
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getPath">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getPath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getPort">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getPort
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getProtocol">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getProtocol
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getRedirect">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getRedirect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getUri">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getUri
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getUrlEncodedBody">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getUrlEncodedBody
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.request.prototype.getUrlParts">
+            function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getUrlParts
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.request.prototype.</span>defaultHeaders</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.request.prototype.</span>headerTransformers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.request.prototype.</span>supportedDataTypes</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.requestify">module requestify.requestify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.cacheTransporter">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>cacheTransporter
+            <span class="apidocSignatureSpan">(cacheTransporter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.delete">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>delete
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.get">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>get
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.head">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>head
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.logAdapter">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>logAdapter
+            <span class="apidocSignatureSpan">(logAdapter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.logLevel">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>logLevel
+            <span class="apidocSignatureSpan">(level)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.post">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>post
+            <span class="apidocSignatureSpan">(url, data, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.put">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>put
+            <span class="apidocSignatureSpan">(url, data, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.redis">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>redis
+            <span class="apidocSignatureSpan">(redisInstance)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.request">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>request
+            <span class="apidocSignatureSpan">(url, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.requestify.responseEncoding">
+            function <span class="apidocSignatureSpan">requestify.requestify.</span>responseEncoding
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.requestify.</span>coreCacheTransporters</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">requestify.requestify.</span>coreLoggerAdapters</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.response">module requestify.response</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.response.response">
+            function <span class="apidocSignatureSpan">requestify.</span>response
+            <span class="apidocSignatureSpan">(code, headers, body)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.requestify.response.prototype">module requestify.response.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.response.prototype.getBody">
+            function <span class="apidocSignatureSpan">requestify.response.prototype.</span>getBody
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.response.prototype.getCode">
+            function <span class="apidocSignatureSpan">requestify.response.prototype.</span>getCode
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.response.prototype.getHeader">
+            function <span class="apidocSignatureSpan">requestify.response.prototype.</span>getHeader
+            <span class="apidocSignatureSpan">(headerKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.response.prototype.getHeaders">
+            function <span class="apidocSignatureSpan">requestify.response.prototype.</span>getHeaders
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.requestify.response.prototype.setChunk">
+            function <span class="apidocSignatureSpan">requestify.response.prototype.</span>setChunk
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify" id="apidoc.module.requestify">module requestify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.cacheTransporter" id="apidoc.element.requestify.cacheTransporter">
+        function <span class="apidocSignatureSpan">requestify.</span>cacheTransporter
+        <span class="apidocSignatureSpan">(cacheTransporter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cacheTransporter = function (cacheTransporter) {
+    if (!cacheTransporter) {
+        return;
+    }
+
+    cache.setCacheTransporter(cacheTransporter);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Sets Requestify&#x27;s encoding. Requestify will use this encoding to decode the responses.
+Defaults to utf8.
+
+```javascript
+requestify.setEncoding(&#x27;utf8&#x27;); // utf8 is set by default anyway.
+```
+
+### requestify.<span class="apidocCodeKeywordSpan">cacheTransporter</span>(cacheTransporter)
+
+Sets the cache transporter for Requestify&#x27;s use. Requestify will use this transporter for caching the desired HTTP responses
+.
+For using one of Requestify&#x27;s core transporter use the core transporters object (`coreCacheTransporters`).
+PLEASE NOTE: the inMemory() transporter is set by default.
+
+For example:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.delete" id="apidoc.element.requestify.delete">
+        function <span class="apidocSignatureSpan">requestify.</span>delete
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (url, options) {
+    options = options || {};
+    options.method = name.toUpperCase();
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+``` javascript
+requestify.put(&#x27;http://example.com&#x27;, &#x27;some-file-content&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+### requestify.<span class="apidocCodeKeywordSpan">delete</span>(url, options)
+
+Executes a DELETE method request
+
+``` javascript
+requestify.delete(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.get" id="apidoc.element.requestify.get">
+        function <span class="apidocSignatureSpan">requestify.</span>get
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (url, options) {
+    options = options || {};
+    options.method = name.toUpperCase();
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+``` javascript
+var requestify = require(&#x27;requestify&#x27;);
+```
+GET Request:
+
+``` javascript
+requestify.<span class="apidocCodeKeywordSpan">get</span>(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+POST Request in JSON:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.head" id="apidoc.element.requestify.head">
+        function <span class="apidocSignatureSpan">requestify.</span>head
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">head = function (url, options) {
+    options = options || {};
+    options.method = name.toUpperCase();
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+``` javascript
+requestify.delete(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+### requestify.<span class="apidocCodeKeywordSpan">head</span>(url, options)
+
+Executes a HEAD method request
+
+``` javascript
+requestify.head(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response code
+	response.getCode();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.logAdapter" id="apidoc.element.requestify.logAdapter">
+        function <span class="apidocSignatureSpan">requestify.</span>logAdapter
+        <span class="apidocSignatureSpan">(logAdapter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logAdapter = function (logAdapter) {
+    if (!logAdapter) {
+        return;
+    }
+
+    logger.setLogger(logAdapter);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.logLevel" id="apidoc.element.requestify.logLevel">
+        function <span class="apidocSignatureSpan">requestify.</span>logLevel
+        <span class="apidocSignatureSpan">(level)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logLevel = function (level) {
+    if (isNaN(level)) {
+        throw new Error(&#x27;Level must be a number&#x27;);
+    }
+
+    logger.logLevel(level);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     * @param {number} level - Number between 0 - 3 (e.g. 0 - error, 1 - warn, 2 - info, 3 - debug)
+     */
+    logLevel: function(level) {
+        if (isNaN(level)) {
+            throw new Error(&#x27;Level must be a number&#x27;);
+        }
+
+        logger.<span class="apidocCodeKeywordSpan">logLevel</span>(level);
+    }
+};
+
+/**
+ * Short methods generator
+ */
+(function createShortMethods(names) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.post" id="apidoc.element.requestify.post">
+        function <span class="apidocSignatureSpan">requestify.</span>post
+        <span class="apidocSignatureSpan">(url, data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">post = function (url, data, options) {
+    options = options || {};
+
+    options.method = name.toUpperCase();
+    options.body = data;
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	response.getBody();
+});
+```
+
+POST Request in JSON:
+
+``` javascript
+requestify.<span class="apidocCodeKeywordSpan">post</span>(&#x27;http://example.com&#x27;, {
+		hello: &#x27;world&#x27;
+	})
+	.then(function(response) {
+		// Get the response body (JSON parsed or jQuery object for XMLs)
+		response.getBody();
+		
+		// Get the raw response body
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.put" id="apidoc.element.requestify.put">
+        function <span class="apidocSignatureSpan">requestify.</span>put
+        <span class="apidocSignatureSpan">(url, data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">put = function (url, data, options) {
+    options = options || {};
+
+    options.method = name.toUpperCase();
+    options.body = data;
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+.then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+### requestify.<span class="apidocCodeKeywordSpan">put</span>(url, data, options)
+
+Executes a PUT method request
+
+``` javascript
+requestify.put(&#x27;http://example.com&#x27;, &#x27;some-file-content&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.redis" id="apidoc.element.requestify.redis">
+        function <span class="apidocSignatureSpan">requestify.</span>redis
+        <span class="apidocSignatureSpan">(redisInstance)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redis = function (redisInstance) {
+    if (!redisInstance) {
+        return;
+    }
+
+    this.cacheTransporter(redisTransporter(redisInstance));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+PLEASE NOTE: the inMemory() transporter is set by default.
+
+For example:
+
+```javascript
+var coreCacheTransporters = requestify.coreCacheTransporters;
+requestify.cacheTransporter(coreCacheTransporters.inMemory()); // set simple in-memory caching (set by default)
+requestify.cacheTransporter(coreCacheTransporters.<span class="apidocCodeKeywordSpan">redis</span>(myRedisInstance)); // Set the
+ core Redis cache transporter, or
+requestify.cacheTransporter(coreCacheTransporters.mongo(myMongooseInstance)); // set the core Mongo cache transporter
+```
+
+You can implement your own cache transporters (@see docs below)
+
+### requestify.redis(redisInstance) - @depercated
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request" id="apidoc.element.requestify.request">
+        function <span class="apidocSignatureSpan">requestify.</span>request
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (url, options) {
+    return callRouter(new Request(url, options));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+});
+```
+
+Caching will always be set to `false` by default.
+
+
+### requestify.<span class="apidocCodeKeywordSpan">request</span>(url, options)
+
+Executes a custom request according to options object
+
+``` javascript
+requestify.request(&#x27;https://example.com/api/foo&#x27;, {
+	method: &#x27;POST&#x27;,
+	body: {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.response" id="apidoc.element.requestify.response">
+        function <span class="apidocSignatureSpan">requestify.</span>response
+        <span class="apidocSignatureSpan">(code, headers, body)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Response(code, headers, body) {
+    this.code = code;
+    this.headers = headers;
+    this.body = body || &#x27;&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.responseEncoding" id="apidoc.element.requestify.responseEncoding">
+        function <span class="apidocSignatureSpan">requestify.</span>responseEncoding
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">responseEncoding = function (value) {
+    if (!value) {
+        return responseEncoding;
+    }
+
+    responseEncoding = value;
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.cache" id="apidoc.module.requestify.cache">module requestify.cache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.cache.get" id="apidoc.element.requestify.cache.get">
+        function <span class="apidocSignatureSpan">requestify.cache.</span>get
+        <span class="apidocSignatureSpan">(url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (url) {
+    return transportExecute(&#x27;get&#x27;, url);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+``` javascript
+var requestify = require(&#x27;requestify&#x27;);
+```
+GET Request:
+
+``` javascript
+requestify.<span class="apidocCodeKeywordSpan">get</span>(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+POST Request in JSON:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.cache.isTransportAvailable" id="apidoc.element.requestify.cache.isTransportAvailable">
+        function <span class="apidocSignatureSpan">requestify.cache.</span>isTransportAvailable
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isTransportAvailable = function () {
+    return transport !== null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     * Request router, handles caching
+     * @param {Request} request
+     * @returns {Q.promise}
+     */
+    function callRouter(request) {
+var defer = Q.defer();
+
+if (!cache.<span class="apidocCodeKeywordSpan">isTransportAvailable</span>() || request.method !== &#x27;GET&#x27; || request.cache
+.cache === false) {
+    return call(request, defer);
+}
+
+function expirationTime(data) {
+    return data.created + request.cache.expires;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.cache.purge" id="apidoc.element.requestify.cache.purge">
+        function <span class="apidocSignatureSpan">requestify.cache.</span>purge
+        <span class="apidocSignatureSpan">(url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">purge = function (url) {
+    return transportExecute(&#x27;purge&#x27;, url);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.cache.set" id="apidoc.element.requestify.cache.set">
+        function <span class="apidocSignatureSpan">requestify.cache.</span>set
+        <span class="apidocSignatureSpan">(url, response)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (url, response) {
+    return transportExecute(&#x27;set&#x27;, url, response);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+function storeCache(url, code, headers, body, cacheSettings) {
+    cacheSettings = cacheSettings || { cache: false };
+
+    if (!cacheSettings.cache) {
+        return;
+    }
+
+    cache.<span class="apidocCodeKeywordSpan">set</span>(url, {
+        code: code,
+        headers: headers,
+        body: body,
+        created: new Date().getTime()
+    });
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.cache.setCacheTransporter" id="apidoc.element.requestify.cache.setCacheTransporter">
+        function <span class="apidocSignatureSpan">requestify.cache.</span>setCacheTransporter
+        <span class="apidocSignatureSpan">(cacheTransporter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setCacheTransporter = function (cacheTransporter) {
+    interfaceValidator.validate(&#x27;CacheTransporter&#x27;, cacheTransporter, transportInterface);
+    transport = cacheTransporter;
+
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {{ get: function, set: function, purge: function }} cacheTransporter
+ */
+cacheTransporter: function(cacheTransporter) {
+    if (!cacheTransporter) {
+        return;
+    }
+
+    cache.<span class="apidocCodeKeywordSpan">setCacheTransporter</span>(cacheTransporter);
+},
+
+/**
+ * Set custom log adapter
+ * @param {{ error: function, info: function, debug: function, warning: function }} logAdapter
+ */
+logAdapter: function(logAdapter) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.coreCacheTransporters" id="apidoc.module.requestify.coreCacheTransporters">module requestify.coreCacheTransporters</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.coreCacheTransporters.inMemory" id="apidoc.element.requestify.coreCacheTransporters.inMemory">
+        function <span class="apidocSignatureSpan">requestify.coreCacheTransporters.</span>inMemory
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inMemory = function () {
+  var cache = {};
+
+  return {
+<span class="apidocCodeCommentSpan">    /**
+     * @implements Cache.get
+     * @param {string} url
+     * @param {Function} callback
+     */
+</span>    get: function(url, callback) {
+      callback(null, cache[url]);
+    },
+
+    /**
+     * @implements Cache.set
+     * @param {string} url
+     * @param {string} response
+     * @param {Function} callback
+     */
+    set: function(url, response, callback) {
+        cache[url] = response;
+        callback();
+    },
+
+    /**
+     * @implements Cache.purge
+     * @param {string} url
+     * @param {Function} callback
+     */
+    purge: function(url, callback) {
+        delete cache[url];
+        callback();
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+For using one of Requestify&#x27;s core transporter use the core transporters object (`coreCacheTransporters`).
+PLEASE NOTE: the inMemory() transporter is set by default.
+
+For example:
+
+```javascript
+var coreCacheTransporters = requestify.coreCacheTransporters;
+requestify.cacheTransporter(coreCacheTransporters.<span class="apidocCodeKeywordSpan">inMemory</span>()); // set simple in-memory
+ caching (set by default)
+requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance)); // Set the core Redis cache transporter, or
+requestify.cacheTransporter(coreCacheTransporters.mongo(myMongooseInstance)); // set the core Mongo cache transporter
+```
+
+You can implement your own cache transporters (@see docs below)
+
+### requestify.redis(redisInstance) - @depercated
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.coreCacheTransporters.mongo" id="apidoc.element.requestify.coreCacheTransporters.mongo">
+        function <span class="apidocSignatureSpan">requestify.coreCacheTransporters.</span>mongo
+        <span class="apidocSignatureSpan">(mongooseInstance, cacheCollection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mongo = function (mongooseInstance, cacheCollection) {
+    if (!mongooseInstance) {
+        throw new Error(&#x27;Cannot init requestify mongo transporter without mongoose instance&#x27;);
+    }
+
+<span class="apidocCodeCommentSpan">    /**
+     * mongoose instance
+     * @type {Object}
+     */
+</span>    var mongoose = mongooseInstance;
+
+    /**
+     * Cache collection
+     * @type {string}
+     */
+    var cacheCollection = cacheCollection || &#x27;requestifyresponses&#x27;;
+
+    /**
+     * Cache schema
+     * @type {mongoose.Schema}
+     */
+    var cacheSchema = new mongoose.Schema({
+        _id: {
+            type: String
+        },
+        response: {
+            type: {
+                code: Number,
+                body: String,
+                headers: Object
+            }
+        }
+    });
+
+    /**
+     * Cache model
+     * @type {mongoose.Model}
+     */
+    var RequestifyResponse = mongoose.model(&#x27;RequestifyResponse&#x27;, cacheSchema, cacheCollection);
+
+
+    return {
+
+        /**
+         * @implements Cache.get
+         * @param {string} url
+         * @param {Function} callback
+         */
+        get: function(url, callback) {
+            RequestifyResponse.findById(url, function (err, result) {
+                if (err) {
+                    return callback(err);
+                }
+                callback(null, result.response);
+            });
+        },
+
+        /**
+         * @implements Cache.set
+         * @param {string} url
+         * @param {string} response
+         * @param {Function} callback
+         */
+        set: function(url, response, callback) {
+            var requestifyResponse = {
+                _id: url,
+                response: response
+            };
+
+            RequestifyResponse.create(requestifyResponse, callback);
+
+            return requestifyResponse;
+        },
+
+        /**
+         * @implements Cache.purge
+         * @param {string} url
+         * @param {Function} callback
+         */
+        purge: function(url, callback) {
+            RequestifyResponse.findByIdAndRemove(url, callback);
+        }
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+For example:
+
+```javascript
+var coreCacheTransporters = requestify.coreCacheTransporters;
+requestify.cacheTransporter(coreCacheTransporters.inMemory()); // set simple in-memory caching (set by default)
+requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance)); // Set the core Redis cache transporter, or
+requestify.cacheTransporter(coreCacheTransporters.<span class="apidocCodeKeywordSpan">mongo</span>(myMongooseInstance)); // set
+the core Mongo cache transporter
+```
+
+You can implement your own cache transporters (@see docs below)
+
+### requestify.redis(redisInstance) - @depercated
+
+Sets Redis client instance. Requestify will use that instance for caching responses.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.coreCacheTransporters.redis" id="apidoc.element.requestify.coreCacheTransporters.redis">
+        function <span class="apidocSignatureSpan">requestify.coreCacheTransporters.</span>redis
+        <span class="apidocSignatureSpan">(redisInstance)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redis = function (redisInstance) {
+    if (!redisInstance) {
+        throw new Error(&#x27;Cannot init requestify redis transporter without redis instance&#x27;);
+    }
+
+<span class="apidocCodeCommentSpan">    /**
+     * Redis instance
+     * @type {Redis}
+     */
+</span>    var redis = redisInstance;
+
+    /**
+     * Returns serialized to string version of the response object
+     * @param {{code: number, body: string, headers: object}} response
+     * @returns {string}
+     */
+    function serializeResponse(response) {
+        return JSON.stringify(response);
+    }
+
+    /**
+     * Deserialize a response string saved to redis
+     * @param {string} response
+     * @returns {object}
+     */
+    function deserializeResponse(response) {
+        return JSON.parse(response);
+    }
+
+    /**
+     * Callback handler
+     * @param {Function} callback
+     * @returns {Function}
+     */
+    function callbackHandler(callback) {
+        return function(error, data) {
+            if (data === &#x27;OK&#x27;) {
+                callback();
+                return;
+            }
+
+            callback(error, deserializeResponse(data));
+        };
+    }
+
+    return {
+
+        /**
+         * @implements Cache.get
+         * @param {string} url
+         * @param {Function} callback
+         */
+        get: function(url, callback) {
+            redis.get(url, callbackHandler(callback));
+        },
+
+        /**
+         * @implements Cache.set
+         * @param {string} url
+         * @param {string} response
+         * @param {Function} callback
+         */
+        set: function(url, response, callback) {
+            redis.set(url, serializeResponse(response), callbackHandler(callback));
+        },
+
+        /**
+         * @implements Cache.purge
+         * @param {string} url
+         * @param {Function} callback
+         */
+        purge: function(url, callback) {
+            redis.del(url, callbackHandler(callback));
+        }
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+PLEASE NOTE: the inMemory() transporter is set by default.
+
+For example:
+
+```javascript
+var coreCacheTransporters = requestify.coreCacheTransporters;
+requestify.cacheTransporter(coreCacheTransporters.inMemory()); // set simple in-memory caching (set by default)
+requestify.cacheTransporter(coreCacheTransporters.<span class="apidocCodeKeywordSpan">redis</span>(myRedisInstance)); // Set the
+ core Redis cache transporter, or
+requestify.cacheTransporter(coreCacheTransporters.mongo(myMongooseInstance)); // set the core Mongo cache transporter
+```
+
+You can implement your own cache transporters (@see docs below)
+
+### requestify.redis(redisInstance) - @depercated
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.coreLoggerAdapters" id="apidoc.module.requestify.coreLoggerAdapters">module requestify.coreLoggerAdapters</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.coreLoggerAdapters.console" id="apidoc.element.requestify.coreLoggerAdapters.console">
+        function <span class="apidocSignatureSpan">requestify.coreLoggerAdapters.</span>console
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">console = function () {
+
+<span class="apidocCodeCommentSpan">    /**
+     * Color definitions
+     * @type {string}
+     */
+</span>    var red = &#x27;\u001b[31m&#x27;,
+        blue = &#x27;\u001b[34m&#x27;,
+        yellow = &#x27;\x1B[33m&#x27;,
+        magenta = &#x27;\x1B[35m&#x27;,
+        reset = &#x27;\u001b[0m&#x27;;
+
+    /**
+     * Composes a colorful message (label is colorful)
+     * @param {string} color
+     * @param {string} label
+     * @param {object|string} message
+     * @returns {string}
+     */
+    function composeColoredMessage(color, label, message) {
+        if (typeof message !== &#x27;string&#x27;) {
+            message = JSON.stringify(message);
+        }
+
+        return color + label + &#x27;: &#x27; + reset + message;
+    }
+
+    return {
+
+        /**
+         * Logs an error to the node console
+         * @param {object|string} message
+         */
+        error: function(message) {
+            console.error(composeColoredMessage(red, &#x27;Error&#x27;, message));
+        },
+
+        /**
+         * Logs info log to the node console
+         * @param {object|string} message
+         */
+        info: function(message) {
+            console.info(composeColoredMessage(blue, &#x27;Info&#x27;, message));
+        },
+
+        /**
+         * Logs debug to the node console
+         * @param {object|string} message
+         */
+        debug: function(message) {
+            console.log(composeColoredMessage(magenta, &#x27;Debug&#x27;, message));
+        },
+
+        /**
+         * Logs warning to the node console
+         * @param {object|string} message
+         */
+        warning: function(message) {
+            console.warn(composeColoredMessage(yellow, &#x27;Warning&#x27;, message));
+        }
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.coreLoggerAdapters.winston" id="apidoc.element.requestify.coreLoggerAdapters.winston">
+        function <span class="apidocSignatureSpan">requestify.coreLoggerAdapters.</span>winston
+        <span class="apidocSignatureSpan">(winstonInstance)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">winston = function (winstonInstance) {
+    if (!winstonInstance) {
+        throw new Error(&#x27;winston instance must be set.&#x27;);
+    }
+
+    return {
+
+<span class="apidocCodeCommentSpan">        /**
+         * Reports error to winston
+         * @param message
+         */
+</span>        error: function(message) {
+            winstonInstance.error(message);
+        },
+
+        /**
+         * Reports info message to winston
+         * @param message
+         */
+        info: function(message) {
+            winstonInstance.info(message);
+        },
+
+        /**
+         * Reports a debug level message to winston
+         * @param message
+         */
+        debug: function(message) {
+            winstonInstance.debug(message);
+        },
+
+        /**
+         * Reports a warning level message to winston
+         * @param message
+         */
+        warning: function(message) {
+            winstonInstance.warning(message);
+        }
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.interface_validator" id="apidoc.module.requestify.interface_validator">module requestify.interface_validator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.interface_validator.validate" id="apidoc.element.requestify.interface_validator.validate">
+        function <span class="apidocSignatureSpan">requestify.interface_validator.</span>validate
+        <span class="apidocSignatureSpan">(interfaceName, object, interfaceArray)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate = function (interfaceName, object, interfaceArray) {
+    if (!object) {
+        throw new Error(interfaceName + &#x27; must implement required methods and cannot be null&#x27;);
+    }
+
+    interfaceArray.forEach(function(val) {
+        if (typeof object[val] !== &#x27;function&#x27;) {
+            throw new Error(interfaceName + &#x27; must implement &#x27; + val + &#x27; method&#x27;);
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * Sets redis client
+ * @param {{ get: function, set: function, purge: function }} cacheTransporter
+ * @returns {Cache}
+ */
+setCacheTransporter: function(cacheTransporter) {
+    interfaceValidator.<span class="apidocCodeKeywordSpan">validate</span>(&#x27;CacheTransporter&#x27;, cacheTransporter, transportInterface
+);
+    transport = cacheTransporter;
+
+    return this;
+},
+
+/**
+ * Determines if transport is currently available for use
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.logger" id="apidoc.module.requestify.logger">module requestify.logger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.logger.debug" id="apidoc.element.requestify.logger.debug">
+        function <span class="apidocSignatureSpan">requestify.logger.</span>debug
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">debug = function (message) {
+    log(value, message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+/**
+ * Reports a debug level message to winston
+ * @param message
+ */
+debug: function(message) {
+    winstonInstance.<span class="apidocCodeKeywordSpan">debug</span>(message);
+},
+
+/**
+ * Reports a warning level message to winston
+ * @param message
+ */
+warning: function(message) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.logger.error" id="apidoc.element.requestify.logger.error">
+        function <span class="apidocSignatureSpan">requestify.logger.</span>error
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">error = function (message) {
+    log(value, message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return {
+
+/**
+ * Logs an error to the node console
+ * @param {object|string} message
+ */
+error: function(message) {
+    console.<span class="apidocCodeKeywordSpan">error</span>(composeColoredMessage(red, &#x27;Error&#x27;, message));
+},
+
+/**
+ * Logs info log to the node console
+ * @param {object|string} message
+ */
+info: function(message) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.logger.info" id="apidoc.element.requestify.logger.info">
+        function <span class="apidocSignatureSpan">requestify.logger.</span>info
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">info = function (message) {
+    log(value, message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+/**
+ * Logs info log to the node console
+ * @param {object|string} message
+ */
+info: function(message) {
+    console.<span class="apidocCodeKeywordSpan">info</span>(composeColoredMessage(blue, &#x27;Info&#x27;, message));
+},
+
+/**
+ * Logs debug to the node console
+ * @param {object|string} message
+ */
+debug: function(message) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.logger.logLevel" id="apidoc.element.requestify.logger.logLevel">
+        function <span class="apidocSignatureSpan">requestify.logger.</span>logLevel
+        <span class="apidocSignatureSpan">(level)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logLevel = function (level) {
+    if (!level) {
+        return currentLoggingLevel;
+    }
+
+    if (levels[level] === undefined) {
+        throw new Error(level + &#x27; is not a valid logging level&#x27;);
+    }
+
+    currentLoggingLevel = level;
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     * @param {number} level - Number between 0 - 3 (e.g. 0 - error, 1 - warn, 2 - info, 3 - debug)
+     */
+    logLevel: function(level) {
+        if (isNaN(level)) {
+            throw new Error(&#x27;Level must be a number&#x27;);
+        }
+
+        logger.<span class="apidocCodeKeywordSpan">logLevel</span>(level);
+    }
+};
+
+/**
+ * Short methods generator
+ */
+(function createShortMethods(names) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.logger.setLogger" id="apidoc.element.requestify.logger.setLogger">
+        function <span class="apidocSignatureSpan">requestify.logger.</span>setLogger
+        <span class="apidocSignatureSpan">(loggerAdapter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setLogger = function (loggerAdapter) {
+    interfaceValidator.validate(&#x27;LoggerInterface&#x27;, loggerAdapter, adapterInterface);
+    adapter = loggerAdapter;
+
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {{ error: function, info: function, debug: function, warning: function }} logAdapter
+ */
+logAdapter: function(logAdapter) {
+    if (!logAdapter) {
+        return;
+    }
+
+    logger.<span class="apidocCodeKeywordSpan">setLogger</span>(logAdapter);
+},
+
+/**
+ * Proxy function for determining logging level
+ * @param {number} level - Number between 0 - 3 (e.g. 0 - error, 1 - warn, 2 - info, 3 - debug)
+ */
+logLevel: function(level) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.logger.warning" id="apidoc.element.requestify.logger.warning">
+        function <span class="apidocSignatureSpan">requestify.logger.</span>warning
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">warning = function (message) {
+    log(value, message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        },
+
+        /**
+         * Reports a warning level message to winston
+         * @param message
+         */
+        warning: function(message) {
+            winstonInstance.<span class="apidocCodeKeywordSpan">warning</span>(message);
+        }
+    };
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.request" id="apidoc.module.requestify.request">module requestify.request</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.request" id="apidoc.element.requestify.request.request">
+        function <span class="apidocSignatureSpan">requestify.</span>request
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Request(url, options) {
+    if (!url) {
+        throw new Error(&#x27;URL must in mandatory to initialize Request object&#x27;);
+    }
+
+    if (!options.method) {
+        throw new Error(&#x27;Cannot execute HTTP request without specifying method&#x27;);
+    }
+
+    this.url = url;
+    this.method = options.method;
+    this.body = options.body || {};
+    this.params = options.params || {};
+    this.path = options.path || null;
+    this.headers = options.headers || {};
+    this.dataType = (options.dataType === undefined) ? &#x27;json&#x27; : options.dataType;
+    this.auth = options.auth || {};
+    this.cache = options.cache || { cache: false, expires: 3600 };
+    this.timeout = options.timeout || 30000;
+    this.cookies(options.cookies);
+    this.redirect = options.redirect || false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+});
+```
+
+Caching will always be set to `false` by default.
+
+
+### requestify.<span class="apidocCodeKeywordSpan">request</span>(url, options)
+
+Executes a custom request according to options object
+
+``` javascript
+requestify.request(&#x27;https://example.com/api/foo&#x27;, {
+	method: &#x27;POST&#x27;,
+	body: {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.request.prototype" id="apidoc.module.requestify.request.prototype">module requestify.request.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.cookies" id="apidoc.element.requestify.request.prototype.cookies">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>cookies
+        <span class="apidocSignatureSpan">(cookies)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cookies = function (cookies) {
+    if (!cookies) {
+        return this.cookiesObj;
+    }
+
+    this.cookiesObj = cookies;
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   this.params = options.params || {};
+   this.path = options.path || null;
+   this.headers = options.headers || {};
+   this.dataType = (options.dataType === undefined) ? &#x27;json&#x27; : options.dataType;
+   this.auth = options.auth || {};
+   this.cache = options.cache || { cache: false, expires: 3600 };
+   this.timeout = options.timeout || 30000;
+   this.<span class="apidocCodeKeywordSpan">cookies</span>(options.cookies);
+   this.redirect = options.redirect || false
+}
+
+/**
+* Returns full URL
+* @returns {string}
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getAuthorization" id="apidoc.element.requestify.request.prototype.getAuthorization">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getAuthorization
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAuthorization = function () {
+    var auth = this.auth;
+
+    // Allow an empty or undefined password if the username is defined
+    // Return null only if both the username and password are empty
+    if (!auth.username &#x26;&#x26; typeof auth.password === &#x27;undefined&#x27;) {
+        return null;
+    }
+
+    return auth.username + &#x27;:&#x27; + auth.password;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Define options according to Request object interface
+options = {
+    hostname: request.getHost(),
+    path: request.getUri(),
+    port: request.getPort(),
+    method: request.method,
+    auth: request.<span class="apidocCodeKeywordSpan">getAuthorization</span>(),
+    headers: request.getHeaders(),
+    redirect : request.getRedirect()
+};
+
+/**
+ * Handle request callback
+ */
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getBody" id="apidoc.element.requestify.request.prototype.getBody">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getBody
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBody = function () {
+    if (this.method === &#x27;GET&#x27; || this.method === &#x27;HEAD&#x27;) {
+        return &#x27;&#x27;;
+    }
+
+    if (this.dataType === &#x27;json&#x27;) {
+        return this.getJsonBody();
+    }
+
+    if (this.dataType === &#x27;form-url-encoded&#x27;) {
+        return this.getUrlEncodedBody();
+    }
+
+    return this.body;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var requestify = require(&#x27;requestify&#x27;);
+```
+GET Request:
+
+``` javascript
+requestify.get(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.<span class="apidocCodeKeywordSpan">getBody</span>();
+});
+```
+
+POST Request in JSON:
+
+``` javascript
+requestify.post(&#x27;http://example.com&#x27;, {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getContentLength" id="apidoc.element.requestify.request.prototype.getContentLength">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getContentLength
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getContentLength = function () {
+    return Buffer.byteLength(this.getBody().toString());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getContentType" id="apidoc.element.requestify.request.prototype.getContentType">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getContentType
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getContentType = function () {
+    if (!_.has(this.supportedDataTypes, this.dataType)) {
+        return &#x27;&#x27;;
+    }
+
+    return this.supportedDataTypes[this.dataType];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getCookiesHeader" id="apidoc.element.requestify.request.prototype.getCookiesHeader">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getCookiesHeader
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCookiesHeader = function () {
+    var i,
+        cookie = &#x27;&#x27;,
+        cookies = this.cookies();
+
+    if (_.isEmpty(cookies)) {
+        return null;
+    }
+
+    for (i in cookies) {
+        if (cookies.hasOwnProperty(i)) {
+            cookie += i + &#x27;=&#x27; + cookies[i] + &#x27;; &#x27;;
+        }
+    }
+
+    return cookie;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getFullUrl" id="apidoc.element.requestify.request.prototype.getFullUrl">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getFullUrl
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getFullUrl = function () {
+    return this.getProtocol() + &#x27;//&#x27; + this.getHost() + this.getUri();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            res.setEncoding(responseEncoding);
+            res.on(&#x27;data&#x27;, function(chunk) {
+response.setChunk(chunk);
+            });
+
+            res.on(&#x27;end&#x27;, function() {
+if (isSuccessful(response.code)) {
+    storeCache(request.<span class="apidocCodeKeywordSpan">getFullUrl</span>(), response.getCode(), response.getHeaders(), response
+.body, request.cache);
+    defer.resolve(response);
+    return;
+}
+
+if (request.redirect &#x26;&#x26; isRedirect(response.code)) {
+    request.url = response.getHeaders().location;
+    return call(request, defer);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getHeaders" id="apidoc.element.requestify.request.prototype.getHeaders">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getHeaders
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHeaders = function () {
+    var requestedHeaders = this.headers,
+        headers = _.clone(this.defaultHeaders),
+        generatedHeaders = this.headerTransformers,
+        i,
+        headerVal;
+
+    for (i in generatedHeaders) {
+        if (generatedHeaders.hasOwnProperty(i)) {
+            headerVal = this[generatedHeaders[i]]();
+
+            if (headerVal) {
+                headers[i] = headerVal;
+            }
+        }
+    }
+
+    _.extend(headers, requestedHeaders);
+
+    return headers;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	dataType: &#x27;json&#x27;		
+})
+.then(function(response) {
+	// get the response body
+	response.getBody();
+
+  	// get the response headers
+	response.<span class="apidocCodeKeywordSpan">getHeaders</span>();
+
+	// get specific response header
+	response.getHeader(&#x27;Accept&#x27;);
+
+	// get the code
+	response.getCode();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getHost" id="apidoc.element.requestify.request.prototype.getHost">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getHost
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHost = function () {
+    return this.getUrlParts().hostname;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var httpRequest,
+    options,
+    http = getHttp(request.getProtocol()),
+    timeout;
+
+// Define options according to Request object interface
+options = {
+    hostname: request.<span class="apidocCodeKeywordSpan">getHost</span>(),
+    path: request.getUri(),
+    port: request.getPort(),
+    method: request.method,
+    auth: request.getAuthorization(),
+    headers: request.getHeaders(),
+    redirect : request.getRedirect()
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getJsonBody" id="apidoc.element.requestify.request.prototype.getJsonBody">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getJsonBody
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getJsonBody = function () {
+    return JSON.stringify(this.body);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+Request.prototype.getBody = function() {
+if (this.method === &#x27;GET&#x27; || this.method === &#x27;HEAD&#x27;) {
+    return &#x27;&#x27;;
+}
+
+if (this.dataType === &#x27;json&#x27;) {
+    return this.<span class="apidocCodeKeywordSpan">getJsonBody</span>();
+}
+
+if (this.dataType === &#x27;form-url-encoded&#x27;) {
+    return this.getUrlEncodedBody();
+}
+
+return this.body;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getPath" id="apidoc.element.requestify.request.prototype.getPath">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getPath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPath = function () {
+    return this.path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getPort" id="apidoc.element.requestify.request.prototype.getPort">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getPort
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPort = function () {
+    var protocol = this.getProtocol(),
+        port = this.getUrlParts().port ;
+
+    if (protocol === &#x27;https:&#x27; &#x26;&#x26; !port) {
+        return 443;
+    }
+
+    if (protocol === &#x27;http:&#x27; &#x26;&#x26; !port) {
+        return 80;
+    }
+
+    return this.getUrlParts().port;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    http = getHttp(request.getProtocol()),
+    timeout;
+
+// Define options according to Request object interface
+options = {
+    hostname: request.getHost(),
+    path: request.getUri(),
+    port: request.<span class="apidocCodeKeywordSpan">getPort</span>(),
+    method: request.method,
+    auth: request.getAuthorization(),
+    headers: request.getHeaders(),
+    redirect : request.getRedirect()
+};
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getProtocol" id="apidoc.element.requestify.request.prototype.getProtocol">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getProtocol
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProtocol = function () {
+    return this.getUrlParts().protocol;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     * Executes the given request object.
+     * @param {Request} request
+     * @param {Q.defer} defer
+     */
+    function call(request, defer) {
+var httpRequest,
+    options,
+    http = getHttp(request.<span class="apidocCodeKeywordSpan">getProtocol</span>()),
+    timeout;
+
+// Define options according to Request object interface
+options = {
+    hostname: request.getHost(),
+    path: request.getUri(),
+    port: request.getPort(),
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getRedirect" id="apidoc.element.requestify.request.prototype.getRedirect">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getRedirect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRedirect = function () {
+    return this.redirect;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+options = {
+    hostname: request.getHost(),
+    path: request.getUri(),
+    port: request.getPort(),
+    method: request.method,
+    auth: request.getAuthorization(),
+    headers: request.getHeaders(),
+    redirect : request.<span class="apidocCodeKeywordSpan">getRedirect</span>()
+};
+
+/**
+ * Handle request callback
+ */
+httpRequest = http.request(options, function(res) {
+    clearTimeout(timeout);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getUri" id="apidoc.element.requestify.request.prototype.getUri">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getUri
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getUri = function () {
+    var parts = this.getUrlParts(),
+        queryObject = _.extend(queryString.parse(parts.query), this.params),
+        query = &#x27;&#x27;;
+
+    if (!_.isEmpty(queryObject)) {
+        query = &#x27;?&#x27; + queryString.encode(queryObject);
+    }
+
+    return parts.pathname + query;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    options,
+    http = getHttp(request.getProtocol()),
+    timeout;
+
+// Define options according to Request object interface
+options = {
+    hostname: request.getHost(),
+    path: request.<span class="apidocCodeKeywordSpan">getUri</span>(),
+    port: request.getPort(),
+    method: request.method,
+    auth: request.getAuthorization(),
+    headers: request.getHeaders(),
+    redirect : request.getRedirect()
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getUrlEncodedBody" id="apidoc.element.requestify.request.prototype.getUrlEncodedBody">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getUrlEncodedBody
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getUrlEncodedBody = function () {
+    return queryString.encode(this.body);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   }
+
+   if (this.dataType === &#x27;json&#x27;) {
+       return this.getJsonBody();
+   }
+
+   if (this.dataType === &#x27;form-url-encoded&#x27;) {
+       return this.<span class="apidocCodeKeywordSpan">getUrlEncodedBody</span>();
+   }
+
+   return this.body;
+};
+
+/**
+* Returns the body encoded to JSON
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.request.prototype.getUrlParts" id="apidoc.element.requestify.request.prototype.getUrlParts">
+        function <span class="apidocSignatureSpan">requestify.request.prototype.</span>getUrlParts
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getUrlParts = function () {
+    this.urlParts = url.parse(this.url);
+
+    if (this.urlParts.host === null) {
+        throw new Error(&#x27;Url is invalid&#x27;);
+    }
+
+    return this.urlParts;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+ * Returns the current request protocol
+ * @returns {string}
+ */
+Request.prototype.getProtocol = function() {
+    return this.<span class="apidocCodeKeywordSpan">getUrlParts</span>().protocol;
+};
+
+/**
+ * Returns the current request host
+ * @returns {string}
+ */
+Request.prototype.getHost = function() {
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.requestify" id="apidoc.module.requestify.requestify">module requestify.requestify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.cacheTransporter" id="apidoc.element.requestify.requestify.cacheTransporter">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>cacheTransporter
+        <span class="apidocSignatureSpan">(cacheTransporter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cacheTransporter = function (cacheTransporter) {
+    if (!cacheTransporter) {
+        return;
+    }
+
+    cache.setCacheTransporter(cacheTransporter);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Sets Requestify&#x27;s encoding. Requestify will use this encoding to decode the responses.
+Defaults to utf8.
+
+```javascript
+requestify.setEncoding(&#x27;utf8&#x27;); // utf8 is set by default anyway.
+```
+
+### requestify.<span class="apidocCodeKeywordSpan">cacheTransporter</span>(cacheTransporter)
+
+Sets the cache transporter for Requestify&#x27;s use. Requestify will use this transporter for caching the desired HTTP responses
+.
+For using one of Requestify&#x27;s core transporter use the core transporters object (`coreCacheTransporters`).
+PLEASE NOTE: the inMemory() transporter is set by default.
+
+For example:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.delete" id="apidoc.element.requestify.requestify.delete">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>delete
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">delete = function (url, options) {
+    options = options || {};
+    options.method = name.toUpperCase();
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+``` javascript
+requestify.put(&#x27;http://example.com&#x27;, &#x27;some-file-content&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+### requestify.<span class="apidocCodeKeywordSpan">delete</span>(url, options)
+
+Executes a DELETE method request
+
+``` javascript
+requestify.delete(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.get" id="apidoc.element.requestify.requestify.get">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>get
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (url, options) {
+    options = options || {};
+    options.method = name.toUpperCase();
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+``` javascript
+var requestify = require(&#x27;requestify&#x27;);
+```
+GET Request:
+
+``` javascript
+requestify.<span class="apidocCodeKeywordSpan">get</span>(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+POST Request in JSON:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.head" id="apidoc.element.requestify.requestify.head">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>head
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">head = function (url, options) {
+    options = options || {};
+    options.method = name.toUpperCase();
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+``` javascript
+requestify.delete(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+### requestify.<span class="apidocCodeKeywordSpan">head</span>(url, options)
+
+Executes a HEAD method request
+
+``` javascript
+requestify.head(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response code
+	response.getCode();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.logAdapter" id="apidoc.element.requestify.requestify.logAdapter">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>logAdapter
+        <span class="apidocSignatureSpan">(logAdapter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logAdapter = function (logAdapter) {
+    if (!logAdapter) {
+        return;
+    }
+
+    logger.setLogger(logAdapter);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.logLevel" id="apidoc.element.requestify.requestify.logLevel">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>logLevel
+        <span class="apidocSignatureSpan">(level)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logLevel = function (level) {
+    if (isNaN(level)) {
+        throw new Error(&#x27;Level must be a number&#x27;);
+    }
+
+    logger.logLevel(level);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     * @param {number} level - Number between 0 - 3 (e.g. 0 - error, 1 - warn, 2 - info, 3 - debug)
+     */
+    logLevel: function(level) {
+        if (isNaN(level)) {
+            throw new Error(&#x27;Level must be a number&#x27;);
+        }
+
+        logger.<span class="apidocCodeKeywordSpan">logLevel</span>(level);
+    }
+};
+
+/**
+ * Short methods generator
+ */
+(function createShortMethods(names) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.post" id="apidoc.element.requestify.requestify.post">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>post
+        <span class="apidocSignatureSpan">(url, data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">post = function (url, data, options) {
+    options = options || {};
+
+    options.method = name.toUpperCase();
+    options.body = data;
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	response.getBody();
+});
+```
+
+POST Request in JSON:
+
+``` javascript
+requestify.<span class="apidocCodeKeywordSpan">post</span>(&#x27;http://example.com&#x27;, {
+		hello: &#x27;world&#x27;
+	})
+	.then(function(response) {
+		// Get the response body (JSON parsed or jQuery object for XMLs)
+		response.getBody();
+		
+		// Get the raw response body
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.put" id="apidoc.element.requestify.requestify.put">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>put
+        <span class="apidocSignatureSpan">(url, data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">put = function (url, data, options) {
+    options = options || {};
+
+    options.method = name.toUpperCase();
+    options.body = data;
+
+    return api.request(url, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+})
+.then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
+
+### requestify.<span class="apidocCodeKeywordSpan">put</span>(url, data, options)
+
+Executes a PUT method request
+
+``` javascript
+requestify.put(&#x27;http://example.com&#x27;, &#x27;some-file-content&#x27;).then(function(response) {
+	// Get the response body
+	response.getBody();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.redis" id="apidoc.element.requestify.requestify.redis">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>redis
+        <span class="apidocSignatureSpan">(redisInstance)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redis = function (redisInstance) {
+    if (!redisInstance) {
+        return;
+    }
+
+    this.cacheTransporter(redisTransporter(redisInstance));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+PLEASE NOTE: the inMemory() transporter is set by default.
+
+For example:
+
+```javascript
+var coreCacheTransporters = requestify.coreCacheTransporters;
+requestify.cacheTransporter(coreCacheTransporters.inMemory()); // set simple in-memory caching (set by default)
+requestify.cacheTransporter(coreCacheTransporters.<span class="apidocCodeKeywordSpan">redis</span>(myRedisInstance)); // Set the
+ core Redis cache transporter, or
+requestify.cacheTransporter(coreCacheTransporters.mongo(myMongooseInstance)); // set the core Mongo cache transporter
+```
+
+You can implement your own cache transporters (@see docs below)
+
+### requestify.redis(redisInstance) - @depercated
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.request" id="apidoc.element.requestify.requestify.request">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>request
+        <span class="apidocSignatureSpan">(url, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (url, options) {
+    return callRouter(new Request(url, options));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+});
+```
+
+Caching will always be set to `false` by default.
+
+
+### requestify.<span class="apidocCodeKeywordSpan">request</span>(url, options)
+
+Executes a custom request according to options object
+
+``` javascript
+requestify.request(&#x27;https://example.com/api/foo&#x27;, {
+	method: &#x27;POST&#x27;,
+	body: {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.requestify.responseEncoding" id="apidoc.element.requestify.requestify.responseEncoding">
+        function <span class="apidocSignatureSpan">requestify.requestify.</span>responseEncoding
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">responseEncoding = function (value) {
+    if (!value) {
+        return responseEncoding;
+    }
+
+    responseEncoding = value;
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.response" id="apidoc.module.requestify.response">module requestify.response</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.response.response" id="apidoc.element.requestify.response.response">
+        function <span class="apidocSignatureSpan">requestify.</span>response
+        <span class="apidocSignatureSpan">(code, headers, body)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Response(code, headers, body) {
+    this.code = code;
+    this.headers = headers;
+    this.body = body || &#x27;&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.requestify.response.prototype" id="apidoc.module.requestify.response.prototype">module requestify.response.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.response.prototype.getBody" id="apidoc.element.requestify.response.prototype.getBody">
+        function <span class="apidocSignatureSpan">requestify.response.prototype.</span>getBody
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBody = function () {
+    var responseType = this.getHeader(&#x27;content-type&#x27;);
+
+    if (!responseType) {
+        return this.body;
+    }
+
+    if (responseType.indexOf(&#x27;application/json&#x27;) !== -1 &#x26;&#x26; _.isString(this.body)) {
+        try {
+            return JSON.parse(this.body);
+        } catch(error) {
+            console.log(&#x27;Failed parsing expected JSON response, returned raw response&#x27;);
+            return this.body;
+        }
+    }
+
+    if (responseType.indexOf(&#x27;application/x-www-form-urlencoded&#x27;) !== -1) {
+        return queryString.parse(this.body);
+    }
+
+    if (responseType.indexOf(&#x27;xml&#x27;) !== -1) {
+        return $(this.body);
+    }
+
+    return this.body;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var requestify = require(&#x27;requestify&#x27;);
+```
+GET Request:
+
+``` javascript
+requestify.get(&#x27;http://example.com&#x27;).then(function(response) {
+	// Get the response body
+	response.<span class="apidocCodeKeywordSpan">getBody</span>();
+});
+```
+
+POST Request in JSON:
+
+``` javascript
+requestify.post(&#x27;http://example.com&#x27;, {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.response.prototype.getCode" id="apidoc.element.requestify.response.prototype.getCode">
+        function <span class="apidocSignatureSpan">requestify.response.prototype.</span>getCode
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCode = function () {
+    return this.code;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   	// get the response headers
+ 	response.getHeaders();
+
+ 	// get specific response header
+ 	response.getHeader(&#x27;Accept&#x27;);
+
+ 	// get the code
+ 	response.<span class="apidocCodeKeywordSpan">getCode</span>();
+	
+	// get the raw response body
+	response.body;
+});
+```
+### requestify.get(url, options)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.response.prototype.getHeader" id="apidoc.element.requestify.response.prototype.getHeader">
+        function <span class="apidocSignatureSpan">requestify.response.prototype.</span>getHeader
+        <span class="apidocSignatureSpan">(headerKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHeader = function (headerKey) {
+    headerKey = headerKey || &#x27;&#x27;;
+
+    if (!this.headers[headerKey]) {
+        return null;
+    }
+
+    return this.headers[headerKey];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	// get the response body
+	response.getBody();
+
+   	// get the response headers
+ 	response.getHeaders();
+
+ 	// get specific response header
+ 	response.<span class="apidocCodeKeywordSpan">getHeader</span>(&#x27;Accept&#x27;);
+
+ 	// get the code
+ 	response.getCode();
+	
+	// get the raw response body
+	response.body;
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.response.prototype.getHeaders" id="apidoc.element.requestify.response.prototype.getHeaders">
+        function <span class="apidocSignatureSpan">requestify.response.prototype.</span>getHeaders
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getHeaders = function () {
+    return this.headers;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	dataType: &#x27;json&#x27;		
+})
+.then(function(response) {
+	// get the response body
+	response.getBody();
+
+  	// get the response headers
+	response.<span class="apidocCodeKeywordSpan">getHeaders</span>();
+
+	// get specific response header
+	response.getHeader(&#x27;Accept&#x27;);
+
+	// get the code
+	response.getCode();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.requestify.response.prototype.setChunk" id="apidoc.element.requestify.response.prototype.setChunk">
+        function <span class="apidocSignatureSpan">requestify.response.prototype.</span>setChunk
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setChunk = function (chunk) {
+    this.body += chunk;
+
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+         */
+        httpRequest = http.request(options, function(res) {
+clearTimeout(timeout);
+var response = new Response(res.statusCode, res.headers);
+
+res.setEncoding(responseEncoding);
+res.on(&#x27;data&#x27;, function(chunk) {
+    response.<span class="apidocCodeKeywordSpan">setChunk</span>(chunk);
+});
+
+res.on(&#x27;end&#x27;, function() {
+    if (isSuccessful(response.code)) {
+        storeCache(request.getFullUrl(), response.getCode(), response.getHeaders(), response.body, request.cache);
+        defer.resolve(response);
+        return;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
